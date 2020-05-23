@@ -9,3 +9,17 @@
    在cmd界面输入  
     chrome.exe --remote-debugging-port=9222
 ## 4.运行Main.java
+
+
+
+# 
+System.setProperty("webdriver.edge.driver","C:/Application/edgedriver_win64/msedgedriver.exe");
+EdgeOptions options=new EdgeOptions();
+WebDriver webDriver= new EdgeDriver(options);
+webDriver.get("https://www.cocservice.top/update/0000-Barbarian/");
+String pageSource = webDriver.getPageSource();
+webDriver.close();
+//System.out.println(pageSource);
+Document document= Jsoup.parse(pageSource);
+Element element = document.selectFirst("table[class = updating]");
+System.out.println(element.toString());
